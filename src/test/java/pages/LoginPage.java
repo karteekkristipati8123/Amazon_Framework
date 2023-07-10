@@ -1,19 +1,21 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.testng.annotations.Test;
 
 import base.Base;
+import utilities.AmazonReadXlsData;
 
 public class LoginPage extends Base {
-
-	public void login() throws InterruptedException {
-		driver.findElement(By.xpath("//input[@id='ap_email']")).sendKeys("8919798123");
-		Thread.sleep(4000);
-		driver.findElement(By.xpath("//input[@id='continue']")).click();
-		Thread.sleep(4000);
-		driver.findElement(By.xpath("//input[@id='ap_password']")).sendKeys("Karthik@amazon8123");
-		Thread.sleep(4000);
-		driver.findElement(By.xpath("//input[@id='signInSubmit']")).click();
-	}
+//	@Test(dataProviderClass = AmazonReadXlsData.class,dataProvider = "loginData")
+//	public void login(String username,String password) throws InterruptedException {
+//		driver.findElement(By.xpath(loc.getProperty("email"))).sendKeys(username);
+//		Thread.sleep(4000);
+//		driver.findElement(By.xpath(loc.getProperty("continue"))).click();
+//		Thread.sleep(4000);
+//		driver.findElement(By.xpath(loc.getProperty("password"))).sendKeys(password);
+//		Thread.sleep(4000);
+//		driver.findElement(By.xpath(loc.getProperty("signin"))).click();
+//	}
 
 }

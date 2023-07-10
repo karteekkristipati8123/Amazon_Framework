@@ -1,7 +1,7 @@
 package base;
 
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -11,38 +11,29 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 
 public class Base {
 	public static WebDriver driver;
-	public static Properties prop;
+	public static Properties prop = new Properties();
+	public static Properties loc = new Properties();
+	public static FileReader  fr;
+	public static FileReader  fr1;
 
-	public Base()
-		{
-		try {
-				prop = new Properties();
-				FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\configfiles\\config.properties");
-				prop.load(fis);
-				}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
 
-		}
+	
 
-	public static void takescreenshot(WebDriver driver,String filename) throws IOException
+	@BeforeTest
+	public static void setup() throws InterruptedException, IOException
 	{
-		File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screen, new File("//Screenshots//"+filename+".png"));
-	}
-
-
-
-	public static void setup() throws InterruptedException
-	{
+	FileReader fr= new FileReader(System.getProperty("user.dir")+"\\src\\test\\resources\\configFiles\\config.properties");
+	FileReader fr1= new FileReader(System.getProperty("user.dir")+"\\src\\test\\resources\\configFiles\\locators.properties");
+	prop.load(fr);
+	loc.load(fr1);
 	ChromeOptions op = new ChromeOptions();
-	op.addArguments("remote-allow-origins=*");
+	op.addArguments("--remote-allow-origins=*");
 	driver = new ChromeDriver(op);
 	driver.manage().window().maximize();
 	driver.get(prop.getProperty("url"));
@@ -50,4 +41,9 @@ public class Base {
 
 	}
 
+	
+	@AfterTest
+	public void teardown() {
+		driver.close();
+	}
 }

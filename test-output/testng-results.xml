@@ -2,15 +2,23 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-21T18:45:14 IST" name="Default suite" finished-at="2023-06-21T18:46:33 IST" duration-ms="79019">
+  <suite started-at="2023-07-09T20:18:09 IST" name="Default suite" finished-at="2023-07-09T20:19:30 IST" duration-ms="80644">
     <groups>
     </groups>
-    <test started-at="2023-06-21T18:45:14 IST" name="Default test" finished-at="2023-06-21T18:46:33 IST" duration-ms="79019">
+    <test started-at="2023-07-09T20:18:09 IST" name="Default test" finished-at="2023-07-09T20:19:30 IST" duration-ms="80644">
       <class name="testCase.LoginTest">
-        <test-method signature="test1()[pri:0, instance:testCase.LoginTest@58ea606c]" started-at="2023-06-21T18:45:14 IST" name="test1" finished-at="2023-06-21T18:46:33 IST" duration-ms="78946" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCase.LoginTest@7c83dc97]" started-at="2023-07-09T20:18:09 IST" name="setup" finished-at="2023-07-09T20:18:22 IST" duration-ms="12391" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test1 -->
+        </test-method> <!-- setup -->
+        <test-method signature="login()[pri:0, instance:testCase.LoginTest@7c83dc97]" started-at="2023-07-09T20:18:22 IST" name="login" finished-at="2023-07-09T20:19:30 IST" duration-ms="68098" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:testCase.LoginTest@7c83dc97]" started-at="2023-07-09T20:19:30 IST" name="teardown" finished-at="2023-07-09T20:19:30 IST" duration-ms="72" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
       </class> <!-- testCase.LoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
